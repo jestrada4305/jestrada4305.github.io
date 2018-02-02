@@ -1,0 +1,20 @@
+<style>
+
+body {
+    background-color:#dde5ec;
+}
+
+h1   {color: blue;
+	border-style: dotted; }
+
+p1 { font-family:Courier; 
+	color:green; 
+	font-size: 20px;
+	text-indent: 33%;
+	}
+
+p2 {  border-top-style: solid;
+		border-bottom-style: solid;
+	text-indent: 50px;}
+	
+</style>
