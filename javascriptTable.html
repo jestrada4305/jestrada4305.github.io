@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Javascript </title>
+	<link rel="stylesheet" href="https://jestrada4305.github.io/main-php.css">
+
+
+<script>
+	var playlist = [
+	{
+		"Artist": "Arcangel",
+		"Album":  "Sentimento",
+		"Genre": "Reggaeton",
+		"Song": "Mi Prefieres a Mi",
+		"User ID": "Arcangel" 
+				
+	},
+	{
+		"Artist": "El Alfa",
+		"Album":  "7am",
+		"Genre": "Reggaeton",
+		"Song": "Se Fue",
+		"User ID": "Alfa" 
+
+	},
+	{	"Artist": "Rowdy",
+		"Album":  "Bobby",
+		"Genre": "Rap",
+		"Song": "Computers",
+		"User ID": "Rebel"
+
+	},
+	{	"Artist": "Moneybag",
+		"Album":  "Quavo",
+		"Genre": "Rap",
+		"Song": "Bagg",
+		"User ID": "Yo"
+	},
+	{	"Artist": "Key",
+		"Album":  "Rain Storm",
+		"Genre": "Rap",
+		"Song": "Russian Cream",
+		"User ID": "Rae"
+	}
+
+};
+	
+	
+	
+
+	
+</script>
+
+</head>
+
+<body>
+		<h1> Javascript Looping </h1>
+		<h2> My Playlist </h2>
+		<table id="play"> </table> <br> <br>
+		<h2> Reggaeton </h2>
+			<thread>
+				<tr> <th> Artist </th> <th> Album </th> <th> Genre</th> <th> Song </th> <th> User ID</th> </tr>
+			</thread>
+			<tbody id= "crank"> </tbody>
+			
+		</table>
+		<script>
+		var text = "";
+		var newText = "";
+		for (var x in playlist) {
+			if (playlist.hasOwnProperty(x)) {
+				var obj = playlist[x];
+				 for (var y in obj) {
+					if (obj.hasOwnProperty(y)) {
+						 text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
+					}
+				}
+				newtext += "<tr><td>" + obj['Artist'] + " " + obj['Album'] + "</td><td>" + obj['User ID'] + "</td></tr>";
+
+				}
+			}
+			document.getElementById("play").innerHTML = text;
+			document.getElementById("crank").innerHTML = newtext;
+			/*document.getElementByID("people").innerHTML = text;*/
+		</script>
+	</body>
+</html>
+			
