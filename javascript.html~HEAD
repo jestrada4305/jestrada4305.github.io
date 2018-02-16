@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<header>
+	<title>Javascript </title>
+	<link rel="stylesheet" href="https://rfollman.github.io/main-php.css">
+</header>
+<html>
+
+	<body>
+
+<h1>Welcome Javascript !</h1>
+<p>
+
+<button type="button" onclick="myFunction()"> Change background color</button>
+
+<button onclick="myFunction()">Click here and see what happens </button>
+
+<script>
+function myFunction() {
+    document.body.style.backgroundColor = "orange";
+    
+function myFunction() {
+    alert("Inst377 is the best!");    
+}
+</script>
+
+</body>
+</html>
+	
+	
