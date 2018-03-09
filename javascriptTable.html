@@ -1,7 +1,7 @@
 <html>
-<head>
-	<title>Javascript </title>
-	<link rel="stylesheet" href="https://jestrada4305.github.io/main-php.css">
+	<head>
+		<title>Javascript </title>
+	
 
 
 <script>
@@ -11,6 +11,7 @@
 		"Album":  "Sentimento",
 		"Genre": "Reggaeton",
 		"Song": "Mi Prefieres a Mi",
+		"Length Of Song":"3:23",
 		"User ID": "Arcangel" 
 				
 	},
@@ -19,53 +20,76 @@
 		"Album":  "7am",
 		"Genre": "Reggaeton",
 		"Song": "Se Fue",
+		"Length Of Song":"2:45",
 		"User ID": "Alfa" 
 
 	},
-	{	"Artist": "Rowdy",
+	{	
+		"Artist": "Rowdy",
 		"Album":  "Bobby",
 		"Genre": "Rap",
 		"Song": "Computers",
+		"Length Of Song":"5:34",
 		"User ID": "Rebel"
 
 	},
-	{	"Artist": "Moneybag",
+	{	
+		"Artist": "Moneybag",
 		"Album":  "Quavo",
 		"Genre": "Rap",
 		"Song": "Bagg",
+		"Length Of Song":"4:45",
 		"User ID": "Yo"
 	},
-	{	"Artist": "Key",
+	{	
+		"Artist": "Key",
 		"Album":  "Rain Storm",
 		"Genre": "Rap",
 		"Song": "Russian Cream",
+		"Length Of Song":"2:15",
 		"User ID": "Rae"
 	}
 
-};
-	
-	
-	
-
+];
 	
 </script>
 
 </head>
 
 <body>
+		<div class ="content">
 		<h1> Javascript Looping </h1>
 		<h2> My Playlist </h2>
 		<table id="play"> </table> <br> <br>
 		<h2> Reggaeton </h2>
+		<table border="1">
 			<thread>
-				<tr> <th> Artist </th> <th> Album </th> <th> Genre</th> <th> Song </th> <th> User ID</th> </tr>
+				<tr> <th> Artist </th> <th> Album </th> <th> Length of Song </th> <th> Genre </th> <th> Days since Last Played </th> </tr>
 			</thread>
-			<tbody id= "crank"> </tbody>
+			<tbody id= "crank"> 
+
+			</tbody>
 			
 		</table>
-		<script>
+			<script>
+			function dateCalc(d) {
+				var oneDay = 1000 * 60 * 60 * 24;
+				var month = d.split(":")[0] - 1,
+					day = d.split(":")[1],
+					year = d.split(":")[2]
+				if (year.length == 2) {year = '20' + year;}
+				date1 = new Date(year, month, day);
+				var date1_ms = date1.getTime();
+				var date2 = new Date();
+				var date2_ms = date2.getTime();
+				var diff_ms = date2_ms - date1_ms;
+				return Math.round(diff_ms/oneDay);
+			}
+
+
+
 		var text = "";
-		var newText = "";
+		var newtext = "";
 		for (var x in playlist) {
 			if (playlist.hasOwnProperty(x)) {
 				var obj = playlist[x];
@@ -74,7 +98,14 @@
 						 text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
 					}
 				}
-				newtext += "<tr><td>" + obj['Artist'] + " " + obj['Album'] + "</td><td>" + obj['User ID'] + "</td></tr>";
+
+				newtext += "<tr><td>" + obj['Artist'] + " " + obj['Album'] +" " +  "</td><td>" + obj['Genre'] + "</td><td>" +
+						obj['Length Of Song'] + "</td><td>" +
+						obj['Song'] + "</td><tr>" ;
+						
+
+/*
+						+ dateCalc(obj['Length of Song'])  "</td> </tr>";*/
 
 				}
 			}
@@ -82,6 +113,7 @@
 			document.getElementById("crank").innerHTML = newtext;
 			/*document.getElementByID("people").innerHTML = text;*/
 		</script>
+</div>		
 	</body>
 </html>
 			
