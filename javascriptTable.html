@@ -1,8 +1,7 @@
 <html>
 	<head>
-		<title>Javascript </title>
-		<link rel="stylesheet" href="sCSS.css">	
-
+		<title>Javascript Objedts</title>
+		<link rel="stylesheet"  href="main-php.css">
 
 <script>
 	var playlist = [
@@ -59,14 +58,14 @@
 		<div class ="content">
 		<h1> Javascript Objects <h1>
 		<h2> My Playlist </h2>
-		<table border=1 class="Center">
+		<table border=1 class="center">
 			<thread>
 				<tr> 
-					<th> Artist </th> <th> Album </th> <th> Genre </th> <th> Song </th> 
+					<th> Artist </th> <th> Album </th> <th> Genre </th> <th> Song </th>  <th> Time</th>
 				</tr>
 			</thread>
 
-			<tbody id="playlist">  </tbody>
+			<tbody id="play">  </tbody>
 
 			<thead>
 			<tr>
@@ -78,26 +77,23 @@
 		</table>
 
 
-			<script>
-			function dateCalc(d) {
-				var oneDay = 1000 * 60 * 60 * 24;
+<script>
+		
 
-				var month = d.split(":")[0] - 1,
-					day = d.split(":")[1],
-					year = d.split(":")[2]
 
-				var month = d.split("/")[0] - 1,
-					day = d.split("/")[1],
-					year = d.split("/")[2]
+		function totalSec(x) {
+			var man = x.split(":")
+			min = parseInt(man[0])		
+			sec = parseInt(man[1])
+			total = (min*60) + sec;
+			return(total)
+		}
 
-				if (year.length == 2) {year = '20' + year;}
-				date1 = new Date(year, month, day);
-				var date1_ms = date1.getTime();
-				var date2 = new Date();
-				var date2_ms = date2.getTime();
-				var diff_ms = date2_ms - date1_ms;
-				return Math.round(diff_ms/oneDay);
-			}
+		function totalTime(x) {
+			var time = x%60
+			var min = (x - time)/60;
+			return(min + ":" + time)
+		}
 
 
 
@@ -105,26 +101,30 @@
 
 		var count = 0
 		var text = "";
-	
-
+		var stats = "";
 		for (var x in playlist) {
 			if (playlist.hasOwnProperty(x)) {
+				++count;
 				var obj = playlist[x];
-				  text += "<tr><td>" + obj['Artist'] + " " + obj['Album'] +" " +  "</td><td>" + obj['Genre'] + "</td><td>" +
-						obj['Song'] + "</td><td>" +
-						obj['Total Time'] + "</td><tr>" ;
-						
-						count = count + calcSecs(obj['Total Time'])
+				  text += "<tr><td>" + obj['Artist'] + "</td><td> " + obj['Album'] + "</td><td>" + obj['Genre'] + "</td><td>" +
+						obj['Song'] + "</td><td>" + obj['Time']+ "</td></tr>"
+					
 					}
+					count = count + totalSec(obj['Total Time'])
 				}
 
+			var time = totalTime(count)
+			var statInfo = "<tr><td>" + 5 +"</td><td>" + 6 + "</td><td>" + time + "</td></td>";
 		
 
-	
+
+
+
+			/*stats += "<tr><td>" + count + "</td><td>" + count + "</td><td>" + totalTime + "</td></tr>"*/
 			document.getElementById("play").innerHTML = text;
-	
-			/*document.getElementByID("people").innerHTML = text;*/
-		</script>
+			document.getElementById("stats").innerHTML = statInfo;
+			
+</script>
 </div>		
 	</body>
 </html>
